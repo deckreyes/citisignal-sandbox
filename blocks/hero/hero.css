@@ -206,6 +206,8 @@ main .hero-container > div {
   padding-top: unset;
   display: flex;
   align-items: center;
+  flex: unset;
+  color: white;
 }
 
 .hero.wireless > div:nth-child(1) > div {
