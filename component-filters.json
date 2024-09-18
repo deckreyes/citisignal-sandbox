@@ -24,7 +24,8 @@
         "commerce-cart",
         "commerce-checkout",
         "commerce-order-confirmation",
-        "columns"
+        "columns",
+        "stockticker"
       ]
     },
     {
