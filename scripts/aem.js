@@ -284,7 +284,7 @@ function createOptimizedPicture(
   breakpoints = [{ media: '(min-width: 600px)', width: '2000' }, { width: '750' }],
 ) {
   // Hack for sandbox images
-  const imageParent = "https://main--citisignal-xwalk--deckreyes.aem.page/" 
+  const imageParent = "https://main--citisignal-xwalk--deckreyes.aem.page" 
   const url = new URL(src, window.location.href);
   const picture = document.createElement('picture');
   const { pathname } = url;
