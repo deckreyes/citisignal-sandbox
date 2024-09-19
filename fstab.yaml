@@ -6,4 +6,4 @@ mountpoints:
 
 folders:
   /products/: /products/default
-  /products/plan: /products/plan/default
+  /products/plan/: /products/plan/default
