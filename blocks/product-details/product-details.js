@@ -16,7 +16,7 @@ import initToast from './toast.js';
 
 // Hack to fix the issue with images not going to the image bus.
 // Only for the sandbox
-const imageParent = "https://main--citisignal-xwalk--deckreyes.aem.page/" 
+const imageParent = "https://main--citisignal-xwalk--deckreyes.aem.page" 
 
 // Error Handling (404)
 async function errorGettingProduct(code = 404) {
