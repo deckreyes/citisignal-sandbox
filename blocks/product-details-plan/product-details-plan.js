@@ -193,7 +193,8 @@ export default async function decorate(block) {
           const modifiedImageFileName = imageFileName.replace(/_/g, '-');
 
           // Update the URL to the new format
-          image.url = `/images/products/${modifiedImageFileName}`;
+          //image.url = `/images/products/${modifiedImageFileName}`;
+          image.url = `${imageParent}/images/products/${modifiedImageFileName}`;
         });
         return {
           ...data,
