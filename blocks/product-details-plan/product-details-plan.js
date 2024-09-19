@@ -13,6 +13,10 @@ import { fetchPlaceholders, readBlockConfig } from '../../scripts/aem.js';
 import { createAccordion, generateListHTML } from '../../scripts/scripts.js';
 import initModal from './modal.js';
 
+// Hack to fix the issue with images not going to the image bus.
+// Only for the sandbox
+const imageParent = "https://main--citisignal-xwalk--deckreyes.aem.page" 
+
 // Error Handling (404)
 async function errorGettingProduct(code = 404) {
   const htmlText = await fetch(`/${code}.html`).then((response) => {
