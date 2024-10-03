@@ -14,10 +14,6 @@ import { fetchPlaceholders, readBlockConfig } from '../../scripts/aem.js';
 import { createAccordion, generateListHTML } from '../../scripts/scripts.js';
 import initToast from './toast.js';
 
-// Hack to fix the issue with images not going to the image bus.
-// Only for the sandbox
-const imageParent = "https://main--citisignal-xwalk--deckreyes.aem.page" 
-
 // Error Handling (404)
 async function errorGettingProduct(code = 404) {
   const htmlText = await fetch(`/${code}.html`).then((response) => {
@@ -191,7 +187,7 @@ export default async function decorate(block) {
           const modifiedImageFileName = imageFileName.replace(/_/g, '-');
 
           // Update the URL to the new format
-          image.url = `${imageParent}/images/products/${modifiedImageFileName}`;
+          image.url = `/images/products/${modifiedImageFileName}`;
         });
         return {
           ...data,
@@ -263,7 +259,7 @@ export default async function decorate(block) {
                     : blockConfig['add-to-cart-btn-text'] || placeholders.pdpProductAddtocart,
                   icon: 'Cart',
                   variant: 'primary',
-                  disabled: adding || !next.data.inStock,
+                  disabled: adding || !next.data.inStock || !next.valid,
                   onClick: async () => {
                     try {
                       state.set('adding', true);
@@ -273,9 +269,10 @@ export default async function decorate(block) {
                         return;
                       }
                       const addToCartResponse = await addProductsToCart([{ ...next.values }]);
+                      // Todo: Need to check why errors is not in the response
 
                       // toast notification
-                      if (next.valid && !addToCartResponse.errors) {
+                      if (next.valid && addToCartResponse) {
                         const { quantity } = next.values;
                         const productMetaDescription = next.data.metaDescription;
                         initToast(quantity, productMetaDescription);
