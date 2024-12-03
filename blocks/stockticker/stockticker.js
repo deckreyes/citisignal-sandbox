@@ -46,7 +46,7 @@ if (tickerSymbol === ""){
   
   // Make an HTTP request to the Alpha Vantage API
   //fetch ('http://127.0.0.1:5500/css/stock-price.json')
-  fetch('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol='+tickerSymbol+'&apikey=YOUR_API_KEY')
+  fetch('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=ADBE&apikey=YOUR_API_KEY')
     .then(response => response.json())
     .then(data => {
   
